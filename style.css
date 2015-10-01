@@ -1,0 +1,48 @@
+* {
+	list-style: none;
+	background: url('fallout-back.jpg') no-repeat center center fixed;
+	background-size: cover;
+	background-repeat: none;
+	color: #EFF1F1;
+	font-family: 'Rokkitt', serif;
+}
+
+.score {
+	font-size: 18px;
+	text-align: right;
+}
+
+.question {
+	font-size: 30px;
+	background: #F10000;
+	/*display:none; */ 
+}
+
+
+button {
+background: #F10000;
+font-size: 26px;
+border: 5px solid #88C092;
+}
+
+button.next {
+	padding: 10px 10px;
+	float: right;
+}
+.start {
+	text-align: center;
+	margin: 200px auto;
+}
+.start button {
+	padding: 50px 50px;
+	font-size: 100px;
+	top: 500px;
+	left: 500px;
+	}
+
+footer p{
+	text-align: center;
+	font-size: 25px;
+	color: red;
+	font-weight: bold;
+}
