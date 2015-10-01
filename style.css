@@ -7,11 +7,13 @@
 	font-family: 'Rokkitt', serif;
 }
 
-.score {
+.score, .score-p {
 	font-size: 18px;
 	text-align: right;
 }
-
+.score-p {
+	font-size: 50px;
+}
 .question {
 	font-size: 30px;
 	/*display:none; */ 
