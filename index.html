@@ -6,20 +6,22 @@
     <meta charset="UTF-8">
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
     <script src="script.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Rokkitt:400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div>
-        <h1 class="score">Score</h1><p class="score-p">0%</p>
+    <p><span class="score">0%</span></p>
+</div>
     </div>
     <div class="start">
-        <button type="submit" >Begin Quiz</button>
+        <button type="submit">Begin Quiz</button>
     </div>
 
     <div class="question" id="q1">
-        <p>1. The city of Megaton is built inside the crater of an unexploded nuclear bomb. What promenate vehicle is used in its construction?</p>
+        <p>1. The city of Megaton is built inside the crater of an unexploded nuclear bomb. What abundant vehicle is used in its construction?</p>
         <ul>
             <li>
                 <input type="radio" name="answer1" value="tractors" checked>a. Tractors</input>
@@ -60,16 +62,16 @@
         <p>3. In Fallout 3, Project Purity is housed in what Washington, D.C. landmark?</p>
         <ul>
             <li>
-                <input type="radio" name="answer3" value="jefferson memorial" checked>a. Jefferson Memorial</input>
+                <input type="radio" name="answer3" value="jefferson memorial">a. Jefferson Memorial</input>
             </li>
             <li>
-                <input type="radio" name="answer3" value="lincoln memorial" checked>b. Lincoln Memorial</input>
+                <input type="radio" name="answer3" value="lincoln memorial">b. Lincoln Memorial</input>
             </li>
             <li>
-                <input type="radio" name="answer3" value="white house" checked>c. White House</input>
+                <input type="radio" name="answer3" value="white house">c. White House</input>
             </li>
             <li>
-                <input type="radio" name="answer3" value="smithsonian building" checked>d. Smithsonian Building</input>
+                <input type="radio" name="answer3" value="smithsonian building">d. The Smithsonian Building</input>
             </li>
             <button type="submit"  class="next">Next Question</button>
         </ul>
@@ -79,16 +81,16 @@
         <p>4. Roger Maxson, the founder of the Brotherhood of Steel was a member of what military branch?</p>
         <ul>
             <li>
-                <input type="radio" name="answer4" value="vertibirds" checked>a. Marines</input>
+                <input type="radio" name="answer4" value="Marines">a. Marines</input>
             </li>
             <li>
-                <input type="radio" name="answer4" value="vertibirds" checked>b. Navy </input>
+                <input type="radio" name="answer4" value="Navy">b. Navy </input>
             </li>
             <li>
-                <input type="radio" name="answer4" value="vertibirds" checked>c. Air Force </input>
+                <input type="radio" name="answer4" value="Air Force">c. Air Force </input>
             </li>
             <li>
-                <input type="radio" name="answer4" value="vertibirds" checked>d. Army</input>
+                <input type="radio" name="answer4" value="Army">d. Army</input>
             </li>
             <button type="submit"  class="next">Next Question</button>
         </ul>
@@ -98,16 +100,16 @@
         <p>5. The character of Robert House was based on what real life business owner?</p>
         <ul>
             <li>
-                <input type="radio" name="answer5" value="vertibirds" checked>a. Henry Ford</input>
+                <input type="radio" name="answer5" value="Henry Ford">a. Henry Ford</input>
             </li>
             <li>
-                <input type="radio" name="answer5" value="vertibirds" checked>b. Andrew Carnegie</input>
+                <input type="radio" name="answer5" value="Andrew Carnegie">b. Andrew Carnegie</input>
             </li>
             <li>
-                <input type="radio" name="answer5" value="vertibirds" checked>c. Thomas Edison</input>
+                <input type="radio" name="answer5" value="Thomas Edison">c. Thomas Edison</input>
             </li>
             <li>
-                <input type="radio" name="answer5" value="vertibirds" checked>d. Howard Hughes</input>
+                <input type="radio" name="answer5" value="Howard Hughes">d. Howard Hughes</input>
             </li>
             <button type="submit" class="next">Next Question</button>
         </ul>
@@ -117,26 +119,28 @@
         <p>6. Jane, Mr. Houses’ lady securitron was based on Jane Russell. What other sex symbol of the 1950s would have been used as Mr. Houses’ second lady securitron?</p>
         <ul>
             <li>
-                <input type="radio" name="answer6" value="vertibirds" checked>a. Marilyn Monroe</input>
+                <input type="radio" name="answer6" value="Marilyn Monroe">a. Marilyn Monroe</input>
             </li>
             <li>
-                <input type="radio" name="answer6" value="vertibirds" checked>b. Ava Gardner</input>
+                <input type="radio" name="answer6" value="Ava Gardner">b. Ava Gardner</input>
             </li>
             <li>
-                <input type="radio" name="answer6" value="vertibirds" checked>c. Rita Hayworth</input>
+                <input type="radio" name="answer6" value="Rita Hayworth">c. Rita Hayworth</input>
             </li>
             <li>
-                <input type="radio" name="answer6" value="vertibirds" checked>d. Lauren Bacall</input>
+                <input type="radio" name="answer6" value="Lauren Bacall">d. Lauren Bacall</input>
             </li>
+            <button type="submit"  class="next">Score</button>
         </ul>
     </div>
-
+    <div class="result"><p></p></div>
 </body>
 
 <footer>
     <div>
-        <p>This quiz was made by Ryan DeSha
-            <br>Please don't sue me Bethesda Softworks!</p>
+        <p class="footer">This quiz was made by Ryan DeSha
+            <br>Please don't sue me Bethesda Softworks!<br>
+            Background sourced by <a href="https://www.fallout4.com/games/fallout-new-vegas">The Fallout Website</a></p>
     </div>
 </footer>
 
