@@ -1,4 +1,97 @@
 <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+div#test{ border:#000 1px solid; padding:10px 40px 40px 40px; }
+</style>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script>
+var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+
+/*
+var questions = [
+    [ "What is 10 + 4?", "12", "14", "16", "B" ],
+    [ "What is 20 - 9?", "7", "13", "11", "C" ],
+    [ "What is 7 x 3?", "21", "24", "25", "A" ],
+    [ "What is 8 / 2?", "10", "2", "4", "C" ]
+];
+*/
+
+var questions = [
+    ["The city of Megaton is built inside the crater of an unexploded nuclear bomb. What abundant vehicle is used in its construction?", "Tractors", "Pre-War Airplanes", "Cars",  "B"],
+    ["What vault contains all the clones of Gary?","Vault 108",  "Vault 101", "Vault 112", "A"], 
+    ["In Fallout 3, Project Purity is housed in what Washington, D.C. landmark?", "Jefferson Memorial", "Lincoln Memorial", "The White House", "A"],
+    ["Roger Maxson, the founder of the Brotherhood of Steel, was a member of what military branch?", "Marines","Air Force", "Army", "C"],
+    ["The character of Robert House was based on what real life titan of business?", "Henry Ford","Thomas Edison", "Howard Hughes", "C"], 
+    ["Jane, Mr. Houses’ lady securitron was based on Jane Russell. What other sex symbol of the 1950s would have been used as Mr. Houses’ second lady securitron?", "Marilyn Monroe", "Ava Gardner", "Rita Hayworth", "A"]
+  ];
+
+function _(x){
+    return document.getElementById(x);
+}
+
+function renderQuestion(){
+    test = _("test");
+    if(pos >= questions.length){
+        test.innerHTML = "<h2>You got "+correct+" of "+questions.length+" questions correct</h2>";
+        _("test_status").innerHTML = "Test Completed";
+        pos = 0;
+        correct = 0;
+        return false;
+    }
+    _("test_status").innerHTML = "Question "+(pos+1)+" of "+questions.length;
+    question = questions[pos][0];
+    chA = questions[pos][1];
+    chB = questions[pos][2];
+    chC = questions[pos][3];
+    test.innerHTML = "<h3>"+question+"</h3>";
+    test.innerHTML += "<input type='radio' name='choices' value='A'> "+chA+"<br>";
+    test.innerHTML += "<input type='radio' name='choices' value='B'> "+chB+"<br>";
+    test.innerHTML += "<input type='radio' name='choices' value='C'> "+chC+"<br><br>";
+    test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+}
+function checkAnswer(){
+    choices = document.getElementsByName("choices");
+    for(var i=0; i<choices.length; i++){
+        if(choices[i].checked){
+            choice = choices[i].value;
+        }
+    }
+    if(choice == questions[pos][4]){
+        correct++;
+    }
+    pos++;
+    renderQuestion();
+}
+window.addEventListener("load", renderQuestion, false);
+</script>
+</head>
+<body>
+<h2 id="test_status"></h2>
+<div id="test"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
 
 <html lang="en">
 
@@ -12,130 +105,24 @@
 </head>
 
 <body>
-    <div>
-    <p><span class="score">0%</span></p>
-</div>
     </div>
-    <div class="start">
-        <button type="submit">Begin Quiz</button>
-    </div>
+        <div class="start">
+            <button type="submit">Begin Quiz</button>
+        </div>
 
-    <div class="question" id="q1">
-        <p>1. The city of Megaton is built inside the crater of an unexploded nuclear bomb. What abundant vehicle is used in its construction?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer1" value="tractors" checked>a. Tractors</input>
-            </li>
-            <li>
-                <input type="radio" name="answer1" value="cars" checked>b. Cars</input>
-            </li>
-            <li>
-                <input type="radio" name="answer1" value="pre-war airplanes" checked>c. Pre-War Airplanes</input>
-            </li>
-            <li>
-                <input type="radio" name="answer1" value="vertibirds" checked>d. Vertibirds</input>
-            </li>
-            <button type="submit" class="next">Next Question</button>
-        </ul>
+    <div class="question">
+        <h1 class="questionTitle"></h1>
+        <ol>
+            <li class="num1"></li>
+            <li class="num2"></li>
+            <li class="num3"></li>
+            <li class="num4"></li>
+        </ol>
+        <button type="submit" class="next">Next</button>
     </div>
-
-    <div class="question" id="q2">
-        <p>2. What vault contains all the clones of Gary?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer2" value="vault 101" checked>a. Vault 101</input>
-            </li>
-            <li>
-                <input type="radio" name="answer2" value="vault 108" checked>b. Vault 108</input>
-            </li>
-            <li>
-                <input type="radio" name="answer2" value="vault 112" checked>c. Vault 112</input>
-            </li>
-            <li>
-                <input type="radio" name="answer2" value="vault 13" checked>d. Vault 13</input>
-            </li>
-            <button type="submit" class="next">Next Question</button>
-        </ul>
-    </div>
-
-    <div class="question" id="q3">
-        <p>3. In Fallout 3, Project Purity is housed in what Washington, D.C. landmark?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer3" value="jefferson memorial">a. Jefferson Memorial</input>
-            </li>
-            <li>
-                <input type="radio" name="answer3" value="lincoln memorial">b. Lincoln Memorial</input>
-            </li>
-            <li>
-                <input type="radio" name="answer3" value="white house">c. White House</input>
-            </li>
-            <li>
-                <input type="radio" name="answer3" value="smithsonian building">d. The Smithsonian Building</input>
-            </li>
-            <button type="submit"  class="next">Next Question</button>
-        </ul>
-    </div>
-
-    <div class="question" id="q4">
-        <p>4. Roger Maxson, the founder of the Brotherhood of Steel was a member of what military branch?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer4" value="Marines">a. Marines</input>
-            </li>
-            <li>
-                <input type="radio" name="answer4" value="Navy">b. Navy </input>
-            </li>
-            <li>
-                <input type="radio" name="answer4" value="Air Force">c. Air Force </input>
-            </li>
-            <li>
-                <input type="radio" name="answer4" value="Army">d. Army</input>
-            </li>
-            <button type="submit"  class="next">Next Question</button>
-        </ul>
-    </div>
-
-    <div class="question" id="q5">
-        <p>5. The character of Robert House was based on what real life business owner?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer5" value="Henry Ford">a. Henry Ford</input>
-            </li>
-            <li>
-                <input type="radio" name="answer5" value="Andrew Carnegie">b. Andrew Carnegie</input>
-            </li>
-            <li>
-                <input type="radio" name="answer5" value="Thomas Edison">c. Thomas Edison</input>
-            </li>
-            <li>
-                <input type="radio" name="answer5" value="Howard Hughes">d. Howard Hughes</input>
-            </li>
-            <button type="submit" class="next">Next Question</button>
-        </ul>
-    </div>
-
-    <div class="question" id="q6">
-        <p>6. Jane, Mr. Houses’ lady securitron was based on Jane Russell. What other sex symbol of the 1950s would have been used as Mr. Houses’ second lady securitron?</p>
-        <ul>
-            <li>
-                <input type="radio" name="answer6" value="Marilyn Monroe">a. Marilyn Monroe</input>
-            </li>
-            <li>
-                <input type="radio" name="answer6" value="Ava Gardner">b. Ava Gardner</input>
-            </li>
-            <li>
-                <input type="radio" name="answer6" value="Rita Hayworth">c. Rita Hayworth</input>
-            </li>
-            <li>
-                <input type="radio" name="answer6" value="Lauren Bacall">d. Lauren Bacall</input>
-            </li>
-            <button type="submit"  class="next">Score</button>
-        </ul>
-    </div>
+   
     <div class="result"><p></p></div>
 </body>
-
 <footer>
     <div>
         <p class="footer">This quiz was made by Ryan DeSha
@@ -143,5 +130,120 @@
             Background sourced by <a href="https://www.fallout4.com/games/fallout-new-vegas">The Fallout Website</a></p>
     </div>
 </footer>
-
 </html>
+
+
+ <ol class="question" id="q1">
+        <p>The city of Megaton is built inside the crater of an unexploded nuclear bomb. What abundant vehicle is used in its construction?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer1" value="wrong">a. Tractors</input>
+            </li>
+            <li>
+                <input type="radio" name="answer1" value="wrong">b. Cars</input>
+            </li>
+            <li>
+                <input type="radio" name="answer1" value="correct">c. Pre-War Airplanes</input>
+            </li>
+            <li>
+                <input type="radio" name="answer1" value="wrong">d. Vertibirds</input>
+            </li>
+            <button type="submit" class="next">Next Question</button>
+        </ul>
+    </ol>
+
+    <ol class="question" id="q2">
+        <p>What vault contains all the clones of Gary?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer2" value="wrong">a. Vault 101</input>
+            </li>
+            <li>
+                <input type="radio" name="answer2" value="correct">b. Vault 108</input>
+            </li>
+            <li>
+                <input type="radio" name="answer2" value="wrong">c. Vault 112</input>
+            </li>
+            <li>
+                <input type="radio" name="answer2" value="wrong">d. Vault 13</input>
+            </li>
+            <button type="submit" class="next">Next Question</button>
+        </ul>
+    </ol>
+
+    <ol class="question" id="q3">
+        <p>In Fallout 3, Project Purity is housed in what Washington, D.C. landmark?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer3" value="correct">a. Jefferson Memorial</input>
+            </li>
+            <li>
+                <input type="radio" name="answer3" value="wrong">b. Lincoln Memorial</input>
+            </li>
+            <li>
+                <input type="radio" name="answer3" value="wrong">c. White House</input>
+            </li>
+            <li>
+                <input type="radio" name="answer3" value="wrong">d. The Smithsonian Building</input>
+            </li>
+            <button type="submit"  class="next">Next Question</button>
+        </ul>
+    </ol>
+
+    <ol class="question" id="q4">
+        <p>Roger Maxson, the founder of the Brotherhood of Steel, was a member of what military branch?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer4" value="wrong">a. Marines</input>
+            </li>
+            <li>
+                <input type="radio" name="answer4" value="wrong">b. Navy </input>
+            </li>
+            <li>
+                <input type="radio" name="answer4" value="wrong">c. Air Force </input>
+            </li>
+            <li>
+                <input type="radio" name="answer4" value="correct">d. Army</input>
+            </li>
+            <button type="submit"  class="next">Next Question</button>
+        </ul>
+    </ol>
+
+    <ol class="question" id="q5">
+        <p>The character of Robert House was based on what real life business owner?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer5" value="wrong">a. Henry Ford</input>
+            </li>
+            <li>
+                <input type="radio" name="answer5" value="wrong">b. Andrew Carnegie</input>
+            </li>
+            <li>
+                <input type="radio" name="answer5" value="wrong">c. Thomas Edison</input>
+            </li>
+            <li>
+                <input type="radio" name="answer5" value="correct">d. Howard Hughes</input>
+            </li>
+            <button type="submit" class="next">Next Question</button>
+        </ul>
+    </ol>
+
+    <ol class="question" id="q6">
+        <p>6. Jane, Mr. Houses’ lady securitron was based on Jane Russell. What other sex symbol of the 1950s would have been used as Mr. Houses’ second lady securitron?</p>
+        <ul>
+            <li>
+                <input type="radio" name="answer6" value="correct">a. Marilyn Monroe</input>
+            </li>
+            <li>
+                <input type="radio" name="answer6" value="wrong">b. Ava Gardner</input>
+            </li>
+            <li>
+                <input type="radio" name="answer6" value="wrong">c. Rita Hayworth</input>
+            </li>
+            <li>
+                <input type="radio" name="answer6" value="wrong">d. Lauren Bacall</input>
+            </li>
+            <button type="submit"  class="next">Score</button>
+        </ul>
+    </ol>
+    -->
