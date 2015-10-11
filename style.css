@@ -29,8 +29,10 @@
 	background: #646874;
 	border: 5px solid #000;
 }
-.question li {
+.question li, .question ul {
 	background: #646874;
+	width:40%;
+	padding-top: 10px;
 }
 
 button {
@@ -72,10 +74,11 @@ margin-right:auto;
 	color: #fff;
 }
 
-
 .result {
+	text-align: center;
 	width: 50%;
-	margin: 70px auto 0px auto;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 30px;
 	background: #646874;
 	border: 5px solid #000;
