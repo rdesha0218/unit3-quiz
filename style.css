@@ -7,59 +7,61 @@
 	font-family: 'Rokkitt', serif;
 
 }
-
-.score {
-	width: 15%;
-	display: none;
+.quiz {
+	display:none;
+}
+ #test_status {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 75px;
 	text-align: center;
 	background: #646874;
 	border: 5px solid #000;
 	padding: 5px 5px;
-	float: none;
 }
-
-.question {
-	margin-top: 70px;
-	font-size: 30px;
-	display:none; 
-}
-
-.question p, .question ul {
+#test {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 	background: #646874;
 	border: 5px solid #000;
+	margin-top: 70px;
+	font-size: 30px;
+	/*display:none; */
 }
-.question li {
+
+h2 {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 75px;
+	text-align: center;
 	background: #646874;
 }
 
+#test h3, #test h2 {
+	width: 80%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background: #646874;
+	font-size: 30px;
+}
+input {
+	margin-left: 70px;
+}
 button {
-	margin-top:50px;
+	margin-top: 25px;
 	background: #646874;
 	font-size: 26px;
 	border: 5px solid #000;
-}
-
-button.next {
 	padding: 10px 10px;
 	float: right;
 }
 
-.start {
-	text-align: center;
-	margin: 100px auto;
-}
-
-.start button {
-	padding: 50px 50px;
-	font-size: 100px;
-	top: 500px;
-	left: 500px;
-}
 .footer{
+	margin: 100px auto;
 	font-size: 25px;
-margin-left: auto;
-margin-right:auto;
 	text-align: center;
 	color: #fff;
 	font-weight: bold;
