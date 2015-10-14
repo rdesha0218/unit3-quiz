@@ -1,4 +1,19 @@
-window.addEventListener("load", renderQuestion, false);
+$(document).ready(function() {
+   $('.start').click(function(){
+        renderQuestion();
+        //alert("Test");
+       //window.addEventListener("load", renderQuestion, false);
+        $(this).hide();
+        $('footer').hide();
+        $('#test').show();
+        $('#test_status').show();
+      // $('.footer').hide();
+  });
+});
+
+$(document).ready(function(){
+
+});
 
 var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
 
@@ -10,9 +25,11 @@ var questions = [
     ["The character of Robert House was based on what real life titan of business?", "Henry Ford","Thomas Edison", "Howard Hughes", "C"], 
     ["Jane, Mr. Houses’ lady securitron was based on Jane Russell. What other sex symbol of the 1950s would have been used as Mr. Houses’ second lady securitron?", "Marilyn Monroe", "Ava Gardner", "Rita Hayworth", "A"]
   ];
+
 function _(x){
     return document.getElementById(x);
 }
+
 function renderQuestion(){
     test = _("test");
     if(pos >= questions.length){
